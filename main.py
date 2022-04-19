@@ -4,12 +4,17 @@
 #
 # import numpy as np
 # import scipy.misc as ms
-# import skimage.io as sk
 # from PIL import Image
 #
-# # img = sk.imread("img.jpg")
-# # print(type(img))
-# # print(img*[0., 0., 1])
+# import matplotlib.pyplot as plt
+# import skimage.io as sk
+# img = sk.imread("img.jpg")
+# plt.imshow(img*[0, 0, 1])
+# plt.show()
+# print(type(img))
+
+#print(img*[0., 0., 1])
+
 #
 # image = Image.open("img.jpg")
 # print(type(image))
@@ -58,7 +63,22 @@
 #
 # cv2.waitKey(0)
 # cv2.destroyAllWindow()
+from PIL import Image
+import matplotlib.pyplot as plt
+mankey = Image.open("mankey.jpg")
+image = Image.open("img.jpg")
 
+# plt.subplot(1,2,2)
+# plt.imshow(image)
+# # img = image.resize((100, 100))
+# img = image.crop((100, 0, 400, 300))
+# plt.subplot(1, 2, 1)
+# plt.imshow(img)
+
+image_copy = image.copy()
+image_copy.paste(mankey, (210, 210))
+plt.imshow(image_copy)
+plt.show()
 # from PIL import Image
 # img = Image.open("img.jpg")
 # print(img.size)
@@ -121,11 +141,13 @@
 #
 # plt.imsave("img/deconvolved.jpg", deconvolved)
 
-import  matplotlib.pyplot as plt
-from skimage import io, restoration
-from skimage.filters.rank import entropy
-from skimage.morphology import disk
-img = io.imread("img/ski.png")
-entr_img = entropy(img, disk(3))
-plt.imshow(entr_img)
+# import  matplotlib.pyplot as plt
+# from skimage import io, restoration
+# from skimage.filters.rank import entropy
+# from skimage.morphology import disk
+# img = io.imread("img/ski.png")
+# entr_img = entropy(img, disk(3))
+# plt.imshow(entr_img)
 from  skimage.filters import try_all_threshold
+
+# print("Hello")
